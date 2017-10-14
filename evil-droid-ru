@@ -4,12 +4,9 @@
 # Evil-Droid is a framework that create & generate & embed apk payload to penetrate android platform
 # 
 #                  Created By Mascerano Bachir .
-#               Modifed and Translated: DarkNode
-#                 Website: https://codeby.net/forum/
+#                 Website: https://www.codeby.net
 #           YTB : https://www.youtube.com/c/corpofhack  
-#           All My Docs: https://codeby.net/forum/tags/darknode-tutorial/
-#       
-#
+
 #
 # this is an open source tool if you want to modify or add something . Please give me a copy.
 
@@ -106,11 +103,11 @@ echo "                                       "
 # check if metasploit-framework is installed
 which msfconsole > /dev/null 2>&1
 if [ "$?" -eq "0" ]; then
-echo -e $green "[ ✔ ] Metasploit-Framework..............${LighGreenF}[ found ]"
+echo -e $green "[ ✔ ] Metasploit-Framework..............${LighGreenF}[ найден ]"
 which msfconsole > /dev/null 2>&1
 sleep 2
 else
-echo -e $red "[ X ] Metasploit-Framework  -> ${RedF}not found "
+echo -e $red "[ X ] Metasploit-Framework  -> ${RedF}not найден "
 echo -e $yellow "[ ! ] Установка Metasploit-Framework "
 sudo apt-get install metasploit-framework -y
 echo -e $blue "[ ✔ ] Установка выполнена ...."
@@ -120,12 +117,12 @@ fi
 #check if xterm is installed
 which xterm > /dev/null 2>&1
 if [ "$?" -eq "0" ]; then
-echo -e $green "[ ✔ ] Xterm.............................${LighGreenF}[ found ]"
+echo -e $green "[ ✔ ] Xterm.............................${LighGreenF}[ найден ]"
 which xterm > /dev/null 2>&1
 sleep 2
 else
 echo ""
-echo -e $red "[ X ] xterm -> ${RedF}not found! "
+echo -e $red "[ X ] xterm -> ${RedF}not найден! "
 sleep 2
 echo -e $yellow "[ ! ] Установка Xterm "
 sleep 2
@@ -138,12 +135,12 @@ fi
 #check if zenity is installed
 which zenity > /dev/null 2>&1
 if [ "$?" -eq "0" ]; then
-echo -e $green "[ ✔ ] Zenity............................${LighGreenF}[ found ]"
+echo -e $green "[ ✔ ] Zenity............................${LighGreenF}[ найден ]"
 which zenity > /dev/null 2>&1
 sleep 2
 else
 echo ""
-echo -e $red "[ X ] Zenity -> ${RedF}not found! "
+echo -e $red "[ X ] Zenity -> ${RedF}not найден! "
 sleep 2
 echo -e $yellow "[ ! ] Установка Zenity "
 sleep 2
@@ -156,12 +153,12 @@ fi
 #Check for Android Asset Packaging Tool
 which aapt > /dev/null 2>&1
 if [ "$?" -eq "0" ]; then
-echo -e $green "[ ✔ ] Aapt..............................${LighGreenF}[ found ]"
+echo -e $green "[ ✔ ] Aapt..............................${LighGreenF}[ найден ]"
 which aapt > /dev/null 2>&1
 sleep 2
 else
 echo ""
-echo -e $red "[ X ] Aapt -> ${RedF}not found! "
+echo -e $red "[ X ] Aapt -> ${RedF}not найден! "
 sleep 2
 echo -e $yellow "[ ! ] Установка Aapt "
 sleep 2
@@ -175,12 +172,12 @@ fi
 #Check for Apktool Reverse Engineering
 which apktool > /dev/null 2>&1
 if [ "$?" -eq "0" ]; then
-echo -e $green "[ ✔ ] Apktool...........................${LighGreenF}[ found ]"
+echo -e $green "[ ✔ ] Apktool...........................${LighGreenF}[ найден ]"
 which aapt > /dev/null 2>&1
 sleep 2
 else
 echo ""
-echo -e $red "[ X ] Apktool -> ${RedF}not found! "
+echo -e $red "[ X ] Apktool -> ${RedF}not найден! "
 sleep 2
 echo -e $yellow "[ ! ] Установка Apktool "
 sleep 2
@@ -193,12 +190,12 @@ fi
 #check for zipalign
 which zipalign > /dev/null 2>&1
 if [ "$?" -eq "0" ]; then
-echo -e $green "[ ✔ ] Zipalign..........................${LighGreenF}[ found ]"
+echo -e $green "[ ✔ ] Zipalign..........................${LighGreenF}[ найден ]"
 which aapt > /dev/null 2>&1
 sleep 2
 else
 echo ""
-echo -e $red "[ X ] Zipalign -> ${RedF}not found! "
+echo -e $red "[ X ] Zipalign -> ${RedF}not найден! "
 sleep 2
 echo -e $yellow "[ ! ] Установка Zipalign "
 sleep 2
@@ -528,8 +525,8 @@ function main()
         echo "[2] Внедрения в оригинальное приложения         "
         echo "[3] Обход антивируса (APK AV  ByPASS)           "
         echo "[4] Запустить Метасплоит                        "
-        echo "[c] Очистка экрана                              "
-        echo "[q] Выход                                        "
+        echo "[c] Очистка (Удаление созданных файлов)         "
+        echo "[q] Выход                                       "
         read -p "[?] Select>: " option
         echo
         
