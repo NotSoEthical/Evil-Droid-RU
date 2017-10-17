@@ -530,7 +530,7 @@ function main()
         print_ascii_art
         echo -e $green ""
         echo "╔──────────────────────────────────────────────╗"
-        echo "|          Evil-Droid Framework $ver           |"
+        echo "|          Evil-Droid Framework v0.3           |"
         echo "|      Взлом удаленного андроид устройства     |"
 	echo "|        Сделано специально для форума:        |"
 	echo "|             <~^^ CODEBY.NET ^^~>             |"
