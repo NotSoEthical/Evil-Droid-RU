@@ -14,4 +14,8 @@ cd Evil-Droid-RU<br><h2>Делаем исполняемым</h2>
 chmod +x evil-droid-ru<br>
 <h2>Запускаем</h2><br>
 ./evil-droid-ru<br>
+<h3>Статья об инструменте:</h3><br>
+https://codeby.net/forum/threads/evil-droid-obxod-av-apk.60689/
+<br><h3>Обсуждения:</h3><br>
+https://codeby.net/forum/threads/evil-droid-ru.60786/
 <img src="http://i.piccy.info/i9/e221bfda4839808a7a82880af0c7d018/1508148378/135152/1188000/2.jpg" />
