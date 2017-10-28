@@ -30,3 +30,6 @@ https://codeby.net/forum/threads/evil-droid-obxod-av-apk.60689/
 <br><h3>Обсуждения:</h3><br>
 https://codeby.net/forum/threads/evil-droid-ru.60786/
 <img src="http://i.piccy.info/i9/e221bfda4839808a7a82880af0c7d018/1508148378/135152/1188000/2.jpg" />
+<br>
+Видео:<br>
+https://www.youtube.com/watch?v=YpgTvNELgNo
